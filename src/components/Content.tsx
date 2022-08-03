@@ -1,25 +1,38 @@
+import React from "react";
 import "./Content.css";
+import AudioContent, { AudioContentProps } from "./AudioContent";
 
 export interface ContentProps {
-    content:any;
+    content:number|string|undefined|null;
     content_type:string;
     like_count?:number;
     comment?: string;
     content_id:number;
     plan_id:number;
+    updateLikes: (id:number) => void;
+    deleteContent: (id:number) => void;
 }
 
-const Content: React.FC <ContentProps>  =({content, content_type, like_count, comment, plan_id}) => {
+const Content=(props:ContentProps) => {
 
     return (
         <div className="content">
-            {/* <button  id="likeCount" onClick={() => updateLikes(content_id)}>{like_count} ❤️ </button>
-            <button id="deleteCard" onClick={() => deleteCard(content_id)}>X</button> */}
-            <h2>{content}</h2>
-            <h2>{content_type}</h2>
-            <h2>{comment}</h2>
+            <button  id="likeCount" onClick={() => updateLikes(props.content_id)}>{props.like_count} ❤️ </button>
+            <button id="deleteContent" onClick={() => deleteContent(props.content_id)}>X</button> 
+            <h2>{props.content}</h2>
+            <h2>{props.content_type}</h2>
+            <h2>{props.comment}</h2>
+            <h2>{AudioContent}</h2>
         </div>
     )
 }
 
 export default Content;
+
+function deleteContent(content: any): void {
+    throw new Error("Function not implemented.");
+}
+function updateLikes(content_id: number): void {
+    throw new Error("Function not implemented.");
+}
+

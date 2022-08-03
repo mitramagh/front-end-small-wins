@@ -4,9 +4,11 @@ import Plan, {PlanProps} from "./Plan";
 
 
 export interface PlanListProps {
-    plans: PlanProps[]
+    plans: PlanProps[];
+    selectPlanCallback: (id:number) =>void;
+    deletePlanCallback: (id:number) =>void;
 }
-const PlanList = ({plans}: PlanListProps) => {
+const PlanList = (props: PlanListProps) => {
 
     const planComponents = plans.map((plan) => {
         return (
@@ -15,9 +17,9 @@ const PlanList = ({plans}: PlanListProps) => {
                     id={plan.id}
                     idea={plan.idea}
                     planner={plan.planner}
+                    selectPlanCallback={props.selectPlanCallback}
+                    deletePlanCallback={props.deletePlanCallback}
            ></Plan>
-        //     // selectPlanCallback={selectPlanCallback}
-        //     // deletePlanCallback={deletePlanCallback}
         );
     })
     return <div className="planList">{planComponents}</div>;

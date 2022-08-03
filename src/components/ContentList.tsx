@@ -3,10 +3,13 @@ import "./ContentList.css";
 import Content, {ContentProps} from "./Content";
 
 export interface ContentListProps {
-    contents:ContentProps[]
+    contents:ContentProps[];
+    deleteContent:(id:number) => void;
+    updateLikes: (id:number) => void;
+
 }
 
-const ContentList = ({contents}: ContentListProps) => {
+const ContentList = (props: ContentListProps) => {
 
     const contentComponents = contents.map((content) => {
         return (
@@ -17,8 +20,8 @@ const ContentList = ({contents}: ContentListProps) => {
                     content_type={content.content_type}
                     like_count={content.like_count}
                     comment={content.comment}
-                    // deleteContent={deleteContent}
-                    // updateLikes={updateLikes}
+                    deleteContent={props.deleteContent}
+                    updateLikes={props.updateLikes}
            ></Content>
         );
     })

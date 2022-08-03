@@ -1,21 +1,23 @@
 import PlanList , {PlanListProps} from "./PlanList";
 import "./PlansView.css";
-// import NewPlanButton from "./NewPlanButton";
+import NewPlanForm from "./NewPlanForm";
 
 
 export interface PlansViewProps {
-  planData:PlanListProps[]
+  planData:PlanListProps;
+  selectPlanCallback: (id:number) =>void;
+  deletePlanCallback: (id:number) =>void;
+  makePlanCallback:( idea:string, planner:string) => void;
 }
-const PlansView=({planData}: PlansViewProps) => {
-  // const planListComponents = plans.map((plan) => {
+const PlansView=(props: PlansViewProps) => {
   return (
     <div className="container">
       <PlanList
-        plans={planData[0].plans}
-        // selectPlanCallback={props.selectPlanCallback}
-        // deletePlanCallback={props.deletePlanCallback}
-      />
-      {/* <NewPlanButton makePlanCallback={props.makePlanCallback} /> */}
+        plans={props.planData}
+        selectPlanCallback={props.selectPlanCallback}
+        deletePlanCallback={props.deletePlanCallback}
+      ></PlanList>
+      <NewPlanForm makePlanCallback={props.makePlanCallback}  /> 
     </div>
   );
 };
