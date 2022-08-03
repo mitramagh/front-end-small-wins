@@ -7,10 +7,11 @@ export interface PlanListProps {
     plans: PlanProps[];
     selectPlanCallback: (id:number) =>void;
     deletePlanCallback: (id:number) =>void;
+
 }
 const PlanList = (props: PlanListProps) => {
 
-    const planComponents = plans.map((plan) => {
+    const planComponents = props.plans.map((plan) => {
         return (
             <Plan
                     key={plan.id}

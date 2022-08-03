@@ -13,7 +13,7 @@ function App() {
 
   const [plans, setPlans] = useState(defaultPlans)
   const [contents, setContents] = useState(defaultContents)
-  const [chosenPlan, setChosenPlan] = useState(null);
+  const [chosenPlan, setChosenPlan] = useState<number | null>(null);
 
 
   useEffect(() => {
@@ -78,6 +78,27 @@ function App() {
         .catch((e) => {
           console.log(e);
         });
+        }
+    
+    const updateLikeCts = (contentId:number) => {
+      // const cardObj =contents.filter((content) =>content.content_id === contentId);
+      // axios
+      //   .put(`${url}/${contentId}`, {
+      //     like_count: Obj.like_count + 1,
+      //   })
+      //   .then(() => {
+      //     const updatedCards = contents.map((content) => {
+      //       if (card.card_id === contentId) {
+      //         card.like_count++;
+      //       }
+      //       return card;
+      //     });
+      //     setContents(updatedContents);
+      //   })
+      //   .catch((e) => {
+      //     console.log(e);
+      //   });
+      console.log(contentId)
     };
 
   // default landing page
@@ -87,9 +108,9 @@ function App() {
         <h1>Hello Planner!</h1>
         <PlanList
           plans={plans}
-          selectPlanCallback={getContentFromOnePlan}
+          selectPlanCallback={getContentsForOnePlan}
           deletePlanCallback={deletePlan}
-          makePlanCallback={onFormSubmitPlan}
+          // makePlanCallback={onFormSubmitPlan}
         ></PlanList>
       </div>
     );
@@ -110,11 +131,14 @@ function App() {
       <button className="btn btn-primary">Click Me</button>
       <h1>Plan </h1>
       <PlanList
-        plans={plans} selectPlanCallback={function (id: number): void {
+        plans={plans} 
+        selectPlanCallback={function (id: number): void {
           throw new Error("Function not implemented.");
-        } } deletePlanCallback={function (id: number): void {
+        } } 
+        deletePlanCallback={function (id: number): void {
           throw new Error("Function not implemented.");
-        } }        
+        } }       
+            
         // setPlans={setPlans}
       ></PlanList>
     </div>

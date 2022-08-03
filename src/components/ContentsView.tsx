@@ -12,10 +12,16 @@ export interface ContentsViewProps {
     // setChosenPlan,
     // setContents,
 }
-const ContentsView=(props.ContentsViewProps) => {
+const ContentsView=(props:ContentsViewProps) => {
     return (
         <div className="content_container">
-            <ContentList contents={contentData.contents} deleteContent={undefined}></ContentList>
+            <ContentList contents={props.contentData.contents} 
+            deleteContent={function (id: number): void {
+                throw new Error("Function not implemented.");
+            } }
+             updateLikes={function (id: number): void {
+                throw new Error("Function not implemented.");
+            } }></ContentList>
         </div>
 
     )

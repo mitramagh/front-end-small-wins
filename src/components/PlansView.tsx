@@ -13,7 +13,7 @@ const PlansView=(props: PlansViewProps) => {
   return (
     <div className="container">
       <PlanList
-        plans={props.planData}
+        plans={props.planData.plans}
         selectPlanCallback={props.selectPlanCallback}
         deletePlanCallback={props.deletePlanCallback}
       ></PlanList>

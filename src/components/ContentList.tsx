@@ -11,7 +11,7 @@ export interface ContentListProps {
 
 const ContentList = (props: ContentListProps) => {
 
-    const contentComponents = contents.map((content) => {
+    const contentComponents = props.contents.map((content) => {
         return (
             <Content
                     plan_id={content.plan_id}

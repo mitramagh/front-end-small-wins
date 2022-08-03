@@ -1,6 +1,6 @@
 import React from "react";
 import "./Content.css";
-import AudioContent, { AudioContentProps } from "./AudioContent";
+// import AudioContent, { AudioContentProps } from "./AudioContent";
 
 export interface ContentProps {
     content:number|string|undefined|null;
@@ -17,22 +17,18 @@ const Content=(props:ContentProps) => {
 
     return (
         <div className="content">
-            <button  id="likeCount" onClick={() => updateLikes(props.content_id)}>{props.like_count} ❤️ </button>
-            <button id="deleteContent" onClick={() => deleteContent(props.content_id)}>X</button> 
+            {/* <button  id="likeCount" onClick={() => props.updateLikes(props.content_id)}>{props.like_count} ❤️ </button>
+            <button id="deleteContent" onClick={() => props.deleteContent(props.content_id)}>X</button>  */}
             <h2>{props.content}</h2>
             <h2>{props.content_type}</h2>
             <h2>{props.comment}</h2>
-            <h2>{AudioContent}</h2>
+            {/* <h2>{AudioContent}</h2> */}
         </div>
     )
 }
 
 export default Content;
 
-function deleteContent(content: any): void {
-    throw new Error("Function not implemented.");
-}
-function updateLikes(content_id: number): void {
-    throw new Error("Function not implemented.");
-}
+
+
 
